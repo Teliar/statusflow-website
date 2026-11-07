@@ -374,17 +374,6 @@ if (mockBtnStart) {
   });
 }
 
-// Smooth Camera Move to Download Section
-document.querySelectorAll('a[href="#download"]').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.getElementById('download');
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  });
-});
-
 // Initialize with default or saved language
 document.addEventListener("DOMContentLoaded", () => {
   setLanguage(currentLanguage);
