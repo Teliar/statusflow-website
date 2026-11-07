@@ -193,26 +193,25 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-pill);
-  transition: var(--transition);
+  background: transparent;
+  border: none;
+  padding: 4px;
   cursor: pointer;
-}
-
-.nav-tg-btn:hover {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
+  transition: var(--transition);
 }
 
 .nav-tg-icon {
-  width: 17px;
-  height: 17px;
+  width: 26px;
+  height: 26px;
   object-fit: contain;
   display: block;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-tg-btn:hover .nav-tg-icon {
+  opacity: 1;
+  transform: scale(1.12);
 }
 
 /* Hero Section */
