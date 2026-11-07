@@ -1020,14 +1020,26 @@ a {
 .bento-icon-box {
   width: 48px;
   height: 48px;
-  border-radius: var(--radius-md);
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 12px;
+  background: var(--primary-blue);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-blue-light);
+  color: #ffffff;
   margin-bottom: 22px;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bento-icon-box svg {
+  stroke: #ffffff;
+}
+
+.bento-item:hover .bento-icon-box {
+  transform: translateY(-2px) scale(1.04);
+  background: var(--primary-blue-hover);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
 }
 
 .bento-title {
