@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StatusFlow — Custom Discord Rich Presence</title>
+  <meta name="description" content="Custom Discord Rich Presence made effortless. Direct photo upload from PC, no developer portal, zero bloat, runs smoothly in system tray.">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Glow & Grid -->
+  <div class="bg-spotlight"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <img src="assets/logo.png" alt="StatusFlow Logo" class="brand-logo">
+        <span class="brand-name">StatusFlow</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#features" data-i18n="nav_features">Features</a>
+        <a href="#showcase" data-i18n="nav_showcase">Preview</a>
+        <a href="#how-it-works" data-i18n="nav_how">How it Works</a>
+        <a href="#download" data-i18n="nav_download">Download</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Language Switcher Segmented Control -->
+        <div class="lang-segmented" role="group" aria-label="Language selection">
+          <button class="lang-seg-btn active" data-lang="en">EN</button>
+          <button class="lang-seg-btn" data-lang="ru">RU</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section">
+      <div class="hero-container">
+        <!-- Headline -->
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_1">Custom Discord Presence,</span><br>
+          <span class="text-gradient" data-i18n="hero_title_2">made effortless.</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Display custom images directly from your PC, write custom text, and track your activity in Discord without bot setups, tokens, or developer portals.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-group">
+          <a href="#download" class="btn-primary hero-btn-download" id="hero-download-btn">
+            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <div class="btn-text-block">
+              <span class="btn-main-text" data-i18n="hero_btn_download">Download for Windows</span>
+              <span class="btn-sub-text">.exe • Standalone (34 MB)</span>
+            </div>
+          </a>
+
+          <a href="#showcase" class="btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span data-i18n="hero_btn_explore">Live Preview</span>
+          </a>
+        </div>
+
+        <!-- Badges underneath -->
+        <div class="hero-specs">
+          <div class="spec-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.95-1.801"/>
+            </svg>
+            <span>Windows 10 / 11</span>
+          </div>
+          <span class="spec-divider">•</span>
+          <div class="spec-item">
+            <span class="status-dot-green"></span>
+            <span data-i18n="spec_free">100% Free & Portable</span>
+          </div>
+          <span class="spec-divider">•</span>
+          <div class="spec-item">
+            <span data-i18n="spec_no_token">Zero Dev Portal Setup</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showcase / Live Preview Section -->
+    <section id="showcase" class="showcase-section">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="tag_preview">Interactive Preview</span>
+        <h2 class="section-title" data-i18n="preview_title">How StatusFlow looks in action</h2>
+        <p class="section-desc" data-i18n="preview_desc">A clean, distraction-free desktop client on your PC that syncs directly to your Discord profile.</p>
+      </div>
+
+      <div class="showcase-dual-container">
+        <!-- Mock StatusFlow App Window -->
+        <div class="mockup-card sf-app-window">
+          <div class="mockup-titlebar">
+            <div class="mockup-window-title">
+              <img src="assets/logo.png" alt="SF" class="mini-app-icon">
+              <span>StatusFlow</span>
+            </div>
+            <div class="mockup-window-controls-win">
+              <span class="win-btn min" title="Minimize">─</span>
+              <span class="win-btn max" title="Maximize">□</span>
+              <span class="win-btn close" title="Close">✕</span>
+            </div>
+          </div>
+
+          <div class="sf-app-body">
+            <!-- Left Column: Photo Upload -->
+            <div class="sf-col-left">
+              <div class="sf-field-label" data-i18n="sf_image_label">IMAGE</div>
+              <div class="sf-photo-box">
+                <img id="sf-preview-img" src="assets/preview-1.png" alt="Preview" class="sf-preview-img">
+              </div>
+              <button class="sf-upload-btn" id="interactive-upload-btn">
+                <span data-i18n="sf_pick_photo">📁 Choose images / GIF</span>
+              </button>
+              <div class="sf-status-ready">
+                <span data-i18n="sf_ready_text">Ready!</span>
+              </div>
+            </div>
+
+            <!-- Right Column: Settings & Inputs -->
+            <div class="sf-col-right">
+              <div class="sf-header-right">
+                <div class="sf-field-label" data-i18n="sf_name_label">NAME</div>
+                <button class="sf-gear-btn" title="Settings" aria-label="Settings">
+                  <img src="assets/gear.png" alt="Settings" class="sf-gear-icon-img">
+                </button>
+              </div>
+              <input type="text" id="sf-name-input" class="sf-input" data-i18n-placeholder="placeholder_name" placeholder="Name..." value="Night Vibes">
+
+              <div class="sf-field-label" style="margin-top: 14px;" data-i18n="sf_desc_label">DESCRIPTION</div>
+              <input type="text" id="sf-desc-input" class="sf-input" data-i18n-placeholder="placeholder_desc" placeholder="Description..." value="Listening to Lo-Fi">
+            </div>
+          </div>
+
+          <!-- Bottom Control Bar -->
+          <div class="sf-bottom-bar">
+            <div class="sf-discord-status">
+              <img src="assets/logo.png" alt="SF" class="sf-bottom-logo">
+              <span class="sf-live-dot">●</span>
+              <span class="sf-status-text" id="sf-status-label" data-i18n="sf_bottom_status">Online in Discord • 01:11 elapsed</span>
+            </div>
+            <div class="sf-buttons-group">
+              <button class="sf-btn-save" id="mock-btn-start" data-i18n="sf_btn_save">Update</button>
+              <button class="sf-btn-stop" id="mock-btn-stop" data-i18n="sf_btn_stop">Stop</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arrow indicator -->
+        <div class="showcase-arrow">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+          <span class="arrow-caption" data-i18n="arrow_caption">Instant Sync</span>
+        </div>
+
+        <!-- Mock Discord User Profile Card -->
+        <div class="mockup-card discord-profile-card">
+          <div class="discord-card-header">
+            <div class="discord-banner"></div>
+            <div class="discord-avatar-wrap">
+              <img src="assets/discord-avatar.png" alt="Discord Avatar" class="discord-avatar">
+              <div class="discord-avatar-badge-online"></div>
+            </div>
+          </div>
+
+          <div class="discord-card-body">
+            <div class="discord-user-info">
+              <h3 class="discord-username">Alex</h3>
+              <span class="discord-tag">@alex_dev</span>
+              <div class="discord-badges-box" title="Badges">
+                <img src="assets/badge-hypesquad.png" alt="HypeSquad Bravery" class="discord-badge-icon" title="HypeSquad Bravery">
+                <img src="assets/badge-bughunter.png" alt="Bug Hunter" class="discord-badge-icon" title="Bug Hunter">
+                <img src="assets/badge-developer.png" alt="Active Developer" class="discord-badge-icon" title="Active Developer">
+                <img src="assets/badge-supporter.png" alt="Early Supporter" class="discord-badge-icon" title="Early Supporter">
+                <img src="assets/badge-botdev.png" alt="Early Verified Bot Developer" class="discord-badge-icon" title="Early Verified Bot Developer">
+                <img src="assets/badge-partner.png" alt="Discord Partner" class="discord-badge-icon" title="Discord Partner">
+                <img src="assets/badge-moderator.png" alt="Certified Moderator" class="discord-badge-icon" title="Certified Moderator">
+              </div>
+            </div>
+
+            <div class="discord-divider"></div>
+
+            <!-- Activity Block -->
+            <div class="discord-activity-block">
+              <div class="discord-activity-header" data-i18n="discord_watching">WATCHING</div>
+
+              <div class="discord-activity-content">
+                <div class="discord-thumbnail-wrapper">
+                  <img id="dc-preview-thumb" src="assets/preview-1.png" alt="Activity Thumbnail" class="discord-activity-img">
+                  <div class="discord-mini-app-badge" title="StatusFlow">
+                    <img src="assets/logo.png" alt="SF">
+                  </div>
+                </div>
+
+                <div class="discord-activity-details">
+                  <div class="discord-act-title" id="dc-display-name">Night Vibes</div>
+                  <div class="discord-act-state" id="dc-display-desc">Listening to Lo-Fi</div>
+                  <div class="discord-act-timer">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span id="discord-elapsed-time">01:11 elapsed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics / Numbers Strip (PaperMC style) -->
+    <section class="stats-section">
+      <div class="stats-container">
+        <div class="stat-card">
+          <div class="stat-number">0s</div>
+          <div class="stat-label" data-i18n="stat_1_label">Portal Setup</div>
+          <div class="stat-sub" data-i18n="stat_1_sub">Works immediately without bots</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">&lt; 80MB</div>
+          <div class="stat-label" data-i18n="stat_2_label">RAM Usage</div>
+          <div class="stat-sub" data-i18n="stat_2_sub">Extremely lightweight client</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1 Click</div>
+          <div class="stat-label" data-i18n="stat_3_label">Direct PC Upload</div>
+          <div class="stat-sub" data-i18n="stat_3_sub">Fast image sync to Discord CDN</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label" data-i18n="stat_4_label">Free & Safe</div>
+          <div class="stat-sub" data-i18n="stat_4_sub">No ads, no tokens needed</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Grid Features (PaperMC Style) -->
+    <section id="features" class="features-section">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="tag_features">Engineered for Simplicity</span>
+        <h2 class="section-title" data-i18n="features_title">Everything you need, nothing you don't</h2>
+        <p class="section-desc" data-i18n="features_desc">Built with modern developer tools to deliver the fastest and cleanest Discord status experience.</p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Feature 1: Large Bento Item -->
+        <div class="bento-item bento-large">
+          <div class="bento-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+          </div>
+          <h3 class="bento-title" data-i18n="feat_1_title">Direct Photo & GIF Upload</h3>
+          <p class="bento-desc" data-i18n="feat_1_desc">Choose any photo or animated GIF right from your PC, or paste directly from clipboard with Ctrl+V (including Win+Shift+S screenshots). StatusFlow prepares everything automatically in seconds.</p>
+          <div class="bento-visual image-upload-visual">
+            <div class="mock-upload-flow">
+              <div class="flow-pill"><span data-i18n="flow_step_1">Photo / GIF / Ctrl+V</span></div>
+              <span class="flow-arrow">➔</span>
+              <div class="flow-pill active"><span data-i18n="flow_step_2">Discord Proxy</span></div>
+              <span class="flow-arrow">➔</span>
+              <div class="flow-pill ready"><span data-i18n="flow_step_3">Live on Profile</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2: System Tray & Background -->
+        <div class="bento-item">
+          <div class="bento-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3 class="bento-title" data-i18n="feat_2_title">System Tray & Background Running</h3>
+          <p class="bento-desc" data-i18n="feat_2_desc">Close the window anytime — StatusFlow continues running quietly in your Windows tray. Right-click the SF icon to pause, restore, or quit.</p>
+        </div>
+
+        <!-- Feature 3: Themes -->
+        <div class="bento-item">
+          <div class="bento-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </div>
+          <h3 class="bento-title" data-i18n="feat_theme_title">Dark & Light Themes</h3>
+          <p class="bento-desc" data-i18n="feat_theme_desc">Switch between a sleek Dark mode and a clean Light theme in the settings menu with instant on-the-fly switching.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bento-item">
+          <div class="bento-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <h3 class="bento-title" data-i18n="feat_4_title">Bilingual: English & Русский</h3>
+          <p class="bento-desc" data-i18n="feat_4_desc">Seamless support for English and Russian. All UI elements, settings, and hotkeys (Ctrl+C, Ctrl+V, Ctrl+A) adapt smoothly.</p>
+        </div>
+
+        <!-- Feature 5: Wide Bento Item -->
+        <div class="bento-item bento-large">
+          <div class="bento-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3 class="bento-title" data-i18n="feat_5_title">Direct Discord Connection</h3>
+          <p class="bento-desc" data-i18n="feat_5_desc">Instant status synchronization directly with your local Discord client. Zero bot setup, zero account tokens needed, and lightning-fast updates.</p>
+          <div class="bento-tags-row">
+            <span class="tech-tag" data-i18n="tech_sync">Instant Sync</span>
+            <span class="tech-tag" data-i18n="tech_safe">No Bots or Tokens</span>
+            <span class="tech-tag" data-i18n="tech_clip">Clipboard Paste</span>
+            <span class="tech-tag" data-i18n="tech_auto">Windows Autostart</span>
+            <span class="tech-tag" data-i18n="tech_tray">System Tray</span>
+            <span class="tech-tag" data-i18n="tech_exe">Standalone .exe</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works (3 Steps) -->
+    <section id="how-it-works" class="steps-section">
+      <div class="section-header">
+        <span class="section-tag" data-i18n="tag_how">Quick Start</span>
+        <h2 class="section-title" data-i18n="how_title">Get online in under 30 seconds</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-badge">1</div>
+          <h3 class="step-title" data-i18n="step_1_title">Download & Launch</h3>
+          <p class="step-desc" data-i18n="step_1_desc">Grab the single `StatusFlow.exe` file. No installer, no Python setup, no CMD windows — it just launches.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">2</div>
+          <h3 class="step-title" data-i18n="step_2_title">Pick Photo / GIF & Text</h3>
+          <p class="step-desc" data-i18n="step_2_desc">Click "Choose images / GIF" or paste any image directly with Ctrl+V from clipboard (including Win+Shift+S screenshots), then type your Name and Description.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">3</div>
+          <h3 class="step-title" data-i18n="step_3_title">Click Start</h3>
+          <p class="step-desc" data-i18n="step_3_desc">Hit the green Start button. Your Discord profile immediately displays your new custom status!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Section (PaperMC Callout style) -->
+    <section id="download" class="download-section">
+      <div class="download-container">
+        <div class="download-card">
+          <div class="download-content">
+            <span class="download-tag" data-i18n="dl_tag">Latest Release</span>
+            <h2 class="download-title" data-i18n="dl_title">Ready to customize your Discord presence?</h2>
+            <p class="download-desc" data-i18n="dl_desc">Download StatusFlow for Windows today. Free, open-source, and portable.</p>
+
+            <div class="download-actions">
+              <a href="downloads/StatusFlow.exe" download="StatusFlow.exe" class="btn-primary dl-main-btn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <div class="btn-text-block">
+                  <span class="btn-main-text" data-i18n="dl_btn_text">Download StatusFlow.exe</span>
+                  <span class="btn-sub-text">Windows 10 / 11 (x64) • v1.0.0</span>
+                </div>
+              </a>
+            </div>
+
+            <div class="download-checksum">
+              <span class="checksum-label">File:</span>
+              <code>StatusFlow.exe (~34 MB)</code>
+              <span class="checksum-divider">•</span>
+              <span class="checksum-label">Release:</span>
+              <span class="checksum-val">Stable v1.0.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="brand">
+          <img src="assets/logo.png" alt="StatusFlow" class="brand-logo">
+          <span class="brand-name">StatusFlow</span>
+        </div>
+        <p class="footer-tagline" data-i18n="footer_tagline">The effortless custom Discord presence app for Windows.</p>
+      </div>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <h4 data-i18n="footer_product">Product</h4>
+          <a href="#features" data-i18n="nav_features">Features</a>
+          <a href="#showcase" data-i18n="nav_showcase">Preview</a>
+          <a href="#download" data-i18n="nav_download">Download</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_links">Quick Links</h4>
+          <a href="downloads/StatusFlow.exe" download data-i18n="footer_direct_dl">Direct .exe Download</a>
+          <a href="#how-it-works" data-i18n="nav_how">Quick Start</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p class="copyright">© 2026 StatusFlow. Built with passion.</p>
+        <p class="disclaimer" data-i18n="footer_disclaimer">StatusFlow is not affiliated with or endorsed by Discord Inc.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
