@@ -189,22 +189,30 @@ a {
   color: #fff;
 }
 
-.btn-nav-download {
+.nav-tg-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 18px;
-  background: var(--primary-blue);
-  color: #fff;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-pill);
-  font-size: 0.88rem;
-  font-weight: 600;
   transition: var(--transition);
+  cursor: pointer;
 }
 
-.btn-nav-download:hover {
-  background: var(--primary-blue-hover);
+.nav-tg-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
+}
+
+.nav-tg-icon {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+  display: block;
 }
 
 /* Hero Section */
