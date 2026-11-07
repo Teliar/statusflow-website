@@ -18,8 +18,9 @@ const translations = {
     hero_title_2: "made effortless.",
     hero_subtitle: "Display custom images directly from your PC, write custom text, and track your activity in Discord without bot setups, tokens, or developer portals.",
     hero_btn_download: "Download for Windows",
+    hero_btn_sub: "Installer • Windows 10 / 11 (35 MB)",
     hero_btn_explore: "Live Preview",
-    spec_free: "100% Free & Portable",
+    spec_free: "100% Free & Open-Source",
     spec_no_token: "Zero Dev Portal Setup",
 
     tag_preview: "Interactive Preview",
@@ -75,12 +76,12 @@ const translations = {
     tech_clip: "Clipboard Paste",
     tech_auto: "Windows Autostart",
     tech_tray: "System Tray",
-    tech_exe: "Standalone .exe",
+    tech_exe: "Installer & Portable",
 
     tag_how: "Quick Start",
     how_title: "Get online in under 30 seconds",
-    step_1_title: "Download & Launch",
-    step_1_desc: "Grab the single `StatusFlow.exe` file. No installer, no Python setup, no CMD windows — it just launches.",
+    step_1_title: "Download & Install",
+    step_1_desc: "Grab StatusFlow-Setup.exe and run the quick installer. It places a clean shortcut on your desktop with zero clutter.",
     step_2_title: "Pick Photo / GIF & Text",
     step_2_desc: "Click \"Choose images / GIF\" or paste any image directly with Ctrl+V from clipboard (including Win+Shift+S screenshots), then type your Name and Description.",
     step_3_title: "Click Start",
@@ -89,12 +90,13 @@ const translations = {
     dl_tag: "Latest Release",
     dl_title: "Ready to customize your Discord presence?",
     dl_desc: "Download StatusFlow for Windows today. Free, open-source, and portable.",
-    dl_btn_text: "Download StatusFlow.exe",
+    dl_btn_text: "Download StatusFlow-Setup.exe",
 
     footer_tagline: "The effortless custom Discord presence app for Windows.",
     footer_product: "Product",
     footer_links: "Quick Links",
-    footer_direct_dl: "Direct .exe Download",
+    footer_installer: "Windows Installer (.exe)",
+    footer_portable: "Portable Edition (.exe)",
     footer_disclaimer: "StatusFlow is not affiliated with or endorsed by Discord Inc."
   },
   ru: {
@@ -109,8 +111,9 @@ const translations = {
     hero_title_2: "без лишних сложностей.",
     hero_subtitle: "Устанавливай любые фото прямо с компьютера, пиши свое название и описание в Discord без создания ботов, токенов и портала разработчиков.",
     hero_btn_download: "Скачать для Windows",
+    hero_btn_sub: "Установщик • Windows 10 / 11 (35 МБ)",
     hero_btn_explore: "Интерактивное превью",
-    spec_free: "100% Бесплатно и Portable",
+    spec_free: "100% Бесплатно и безопасно",
     spec_no_token: "Без настроек Dev Portal",
 
     tag_preview: "Интерактивное превью",
@@ -166,12 +169,12 @@ const translations = {
     tech_clip: "Вставка из буфера",
     tech_auto: "Автозапуск",
     tech_tray: "Работа в трее",
-    tech_exe: "Один .exe файл",
+    tech_exe: "Установщик и Portable",
 
     tag_how: "Быстрый старт",
     how_title: "Запуск меньше чем за 30 секунд",
-    step_1_title: "Скачай и запусти",
-    step_1_desc: "Один файл `StatusFlow.exe`. Никаких установщиков и консольных окон — просто два клика.",
+    step_1_title: "Скачай и установи",
+    step_1_desc: "Скачай StatusFlow-Setup.exe и установи в пару кликов. Создастся красивый чистый ярлык на рабочем столе без лишних файлов.",
     step_2_title: "Выбери фото / GIF и текст",
     step_2_desc: "Нажми «Выбрать фото / GIF» или вставь картинку прямо из буфера через Ctrl+V (включая скриншоты Win+Shift+S), введи Название и Описание.",
     step_3_title: "Нажми Старт",
@@ -180,12 +183,13 @@ const translations = {
     dl_tag: "Свежий релиз",
     dl_title: "Готов обновить свой Discord статус?",
     dl_desc: "Скачай StatusFlow для Windows прямо сейчас. Бесплатно, надежно и удобно.",
-    dl_btn_text: "Скачать StatusFlow.exe",
+    dl_btn_text: "Скачать StatusFlow-Setup.exe",
 
     footer_tagline: "Удобная программа для кастомного статуса Discord на Windows.",
     footer_product: "Продукт",
     footer_links: "Быстрые ссылки",
-    footer_direct_dl: "Прямая ссылка на .exe",
+    footer_installer: "Установщик Windows (.exe)",
+    footer_portable: "Портативная версия (.exe)",
     footer_disclaimer: "StatusFlow не связан с компанией Discord Inc."
   }
 };
